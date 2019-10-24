@@ -23,9 +23,11 @@ public class InfoActivity extends AppCompatActivity {
                 into(candyStoreImageView);
     }
 
+    // ***
+// TODO - Task 3 - Launch the Map Activity
+// ***
     public void createMapIntent(View view) {
         Uri uriMatch = Uri.parse("geo:0,0?q=618 E South St Orlando, FL 32801");
-
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, uriMatch);
         mapIntent.setPackage("com.google.android.apps.maps");
         if (mapIntent.resolveActivity(getPackageManager()) != null) {
@@ -33,7 +35,13 @@ public class InfoActivity extends AppCompatActivity {
         }
     }
 
-// ***
+    // ***
 // TODO - Task 3 - Launch the Phone Activity
 // ***
+    public void createPhoneIntent(View view) {
+        Uri uriPhone = Uri.parse("tel:0123456789");
+        Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
+        phoneIntent.setData(uriPhone);
+        startActivity(phoneIntent);
+    }
 }
